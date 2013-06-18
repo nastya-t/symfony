@@ -1,0 +1,38 @@
+{% extends "AcmeYoutubeSearchBundle::base.html.twig" %}
+
+{% block head %}
+    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/acmedemo/css/demo.css') }}" />
+{% endblock %}
+
+{% block title 'Demo Bundle' %}
+
+{% block body %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="flash-message">
+            <em>Notice</em>: {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    {% block content_header %}
+        <ul id="menu">
+            {% block content_header_more %}
+                <li><a href="{{ path('search_video') }}">Search video</a></li>
+                <li><a href="{{ path('clip_create') }}">Clip create</a></li>
+                <li><a href="{{ path('clip_list') }}">Clip list</a></li>
+                <li><a href="{{ path('tag_create') }}">Tag create</a></li>
+                <li><a href="{{ path('tag_list') }}">Tag list</a></li>
+            {% endblock %}
+        </ul>
+
+        <div style="clear: both"></div>
+    {% endblock %}
+
+    <div class="block">
+        {% block content %}{% endblock %}
+    </div>
+
+{% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('bundles/custom/js/jquery-1.10.1.min.js') }}" type="text/javascript" ></script>
+    {% endblock %}

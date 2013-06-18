@@ -1,0 +1,12 @@
+acme_youtube_search_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: AcmeYoutubeSearchBundle:Default:index }
+youtube:
+    resource: "@AcmeYoutubeSearchBundle/Controller/DefaultController.php"
+    type:     annotation
+clip:
+    resource: "@AcmeYoutubeSearchBundle/Controller/ClipController.php"
+    type:     annotation
+tag:
+    resource: "@AcmeYoutubeSearchBundle/Controller/TagController.php"
+    type:     annotation

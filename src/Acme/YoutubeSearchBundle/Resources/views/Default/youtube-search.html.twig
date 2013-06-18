@@ -1,0 +1,13 @@
+{% extends "AcmeYoutubeSearchBundle::layout.html.twig" %}
+
+{% block content %}
+    <h1>Форма поиска youtube роликов</h1>
+    <br/>
+    <form action="" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <br/>
+        <input type="submit" value="Найти"/>
+        <ul>{{ videos | raw }}</ul>
+    </form>
+
+{% endblock %}

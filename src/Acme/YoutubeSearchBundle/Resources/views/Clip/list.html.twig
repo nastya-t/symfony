@@ -1,0 +1,13 @@
+{% extends "AcmeYoutubeSearchBundle::layout.html.twig" %}
+
+{% block content %}
+    <table>
+    {% for clip in clips %}
+        <tr>
+            <td>{{ clip.getUrl() }}</td>
+            <td>{{ clip.getTimeStart() }}</td>
+            <td>{{ clip.getTimeFinish() }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

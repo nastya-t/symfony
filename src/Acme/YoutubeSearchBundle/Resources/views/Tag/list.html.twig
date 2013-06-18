@@ -1,0 +1,11 @@
+{% extends "AcmeYoutubeSearchBundle::layout.html.twig" %}
+
+{% block content %}
+    <table>
+        {% for tag in tags %}
+            <tr>
+                <td>{{ tag.getName() }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
