@@ -14,7 +14,7 @@ class DefaultController extends Controller
 {
 
     /**
-     * @Route("search/video", name="search_video")
+     * @Route("/", name="search_video")
      * @Template("AcmeYoutubeSearchBundle:Default:youtube-search.html.twig")
      */
     public function youtubeSearchAction()

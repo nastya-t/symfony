@@ -1,28 +1,34 @@
 {% extends "AcmeYoutubeSearchBundle::layout.html.twig" %}
 
 {% block content %}
-    {{ form_start(form) }}
+    <h1>Форма создания клипа</h1>
+    <br/>
+    <form class='cForm' action="" method="post" {{ form_enctype(form) }}>
         {{ form_errors(form) }}
-
         {{ form_row(form.url) }}
         {{ form_row(form.timeStart) }}
         {{ form_row(form.timeFinish) }}
+    <div>
+        <h3>Tags</h3>
+        <div><a href="javascript:void(0)" class="add_tag_link">Add a tag</a></div>
+        <ul  class="tags" data-prototype="{{ form_widget(form.tags.vars.prototype)|e }}">
+            {# iterate over each existing tag and render its only field: name #}
+                {% for tag in form.tags %}
+                    <li class="tags">{{ form_row(tag.name) }}</li>
 
-
-    <ul class="tags" data-prototype="{{ form_widget(form.tags.vars.prototype)|e }}">
-        ...
-    </ul>
-
+                {% endfor %}
+        </ul>
+    </div>
         {{ form_row(form.save) }}
-    {{ form_end(form) }}
+        {{ form_widget(form._token) }}
+</form>
 
     <script>
         // Get the ul that holds the collection of tags
         var collectionHolder = $('ul.tags');
 
         // setup an "add a tag" link
-        var $addTagLink = $('<a href="#" class="add_tag_link">Add a tag</a>');
-        var $newLinkLi = $('<li></li>').append($addTagLink);
+        var $newLinkLi = $('<li></li>').append($('.add_tag_link'));
 
         jQuery(document).ready(function() {
             // add the "add a tag" anchor and li to the tags ul
@@ -32,7 +38,7 @@
             // index when inserting a new item (e.g. 2)
             collectionHolder.data('index', collectionHolder.find(':input').length);
 
-            $addTagLink.on('click', function(e) {
+            $('.add_tag_link').on('click', function(e) {
                 // prevent the link from creating a "#" on the URL
                 e.preventDefault();
 

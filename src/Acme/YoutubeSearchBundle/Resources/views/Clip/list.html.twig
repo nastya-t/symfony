@@ -1,7 +1,14 @@
 {% extends "AcmeYoutubeSearchBundle::layout.html.twig" %}
 
 {% block content %}
-    <table>
+    <h1>Список клипов</h1>
+    <br/>
+    <table border='1' class="table-list">
+        <tr>
+            <th>Url</th>
+            <th>Time Start</th>
+            <th>Time Finish</th>
+        </tr>
     {% for clip in clips %}
         <tr>
             <td>{{ clip.getUrl() }}</td>
