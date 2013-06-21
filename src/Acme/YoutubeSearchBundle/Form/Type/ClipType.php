@@ -20,7 +20,7 @@ class ClipType extends AbstractType
                 'by_reference' => false,
             )
         );
-        $builder->add('save', 'submit');
+        $builder->add('save', 'submit', array('attr' => array('class' => 'btn btn-primary')));
     }
 
     public function getName()
